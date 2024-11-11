@@ -1,15 +1,35 @@
 const validateForm =(name, email, username, mobile)=>{
-    console.log(name, email, username, mobile);
+
+    let valid = true;
+    let invalid = {
+        name: false,
+        email: false,
+        username: false,
+        mobile: false,
+    };
     if(!name||!email||!username||!mobile){
-        console.log("All fields are required");
-        return false;
+        valid = false;
+        invalid = {
+            name: !name, 
+            email: !email,
+            username: !username,
+            mobile: !mobile 
+        }
     }
+
      const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
      const phoneRegEx = /^\d{10}$/;
      if(!emailRegEx.test(email) || !phoneRegEx.test(mobile)){
-        console.log("Invalid email or phone number");
-        return false;
+        invalid = {
+            ...invalid,
+            email: !emailRegEx.test(email),
+            mobile: !phoneRegEx.test(mobile),
+        };
+        valid = false;
      }  
+     console.log(valid);
+     console.log(invalid);
+     return {valid, invalid};
   }
 
   export default validateForm

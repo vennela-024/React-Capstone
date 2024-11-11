@@ -1,16 +1,19 @@
 import React from 'react'
-import { useState } from 'react'
 import styles from './Form.module.css'
-import validateForm from '../utils/validateForm'
 
-function Form({}) {
-
-    const [name, setName] = useState("")
-    const [username, setUserName] = useState("")
-    const [email, setEmail] = useState("")
-    const [mobile, setMobile] = useState("")
-    const [error, setError] = useState("")
-
+function Form({
+  name,
+  setName,
+  email,
+  setEmail,
+  username,
+  setUsername,
+  mobile,
+  setMobile,
+  error,
+  setError,
+  submitHandler
+}) {
 
   return (
     <div className={styles.container}>
@@ -20,28 +23,32 @@ function Form({}) {
         placeholder='Name'
         value={name}
         onChange={(e)=>setName(e.target.value)} />
+        {error?.name && <p className ={styles.error}>Field is required</p>}
 
         <input 
         type="text"
         placeholder='Username'
         value={username}
-        onChange={(e)=>setUserName(e.target.value)} />
+        onChange={(e)=>setUsername(e.target.value)} />
+        {error?.username && <p className ={styles.error}>Field is required</p>}
 
         <input 
         type="email"
         placeholder='Email'
         value={email}
         onChange={(e)=>setEmail(e.target.value)} />
+        {error?.email && <p className ={styles.error}>Field is required</p>}
 
         <input 
         type="text"
         placeholder='Mobile'
         value={mobile}
         onChange={(e)=>setMobile(e.target.value)} />
+        {error?.mobile && <p className ={styles.error}>Field is required</p>}
         
-        <button onClick={() => validateForm(name, email, username, mobile)}>SIGN UP</button>
+        <button onClick={submitHandler}>SIGN UP</button>
     </div>
   )
 }
 
-export default Form
+export default Form;
