@@ -38,8 +38,8 @@ const handleNext = () => {
   return (
     <div className={styles.container}>
         <div className={styles.left}>
-            <h3 className={styles.heading}>Super App</h3>
-            <h2 className={styles.subHeading}>Choose your entertainment category</h2>
+            <h2 className={styles.heading}>Super app</h2>
+            <h1 className={styles.subHeading}>Choose your entertainment category</h1>
             <div className={styles.selectedGenres}>
                 {selectedGenres.map((genre, index)=> (
                     <div key={index}

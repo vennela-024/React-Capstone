@@ -10,13 +10,37 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
 }
-.selectedGenres{
 
+.heading{
+    color: #72DB73;
+    font-family: "Single Day", serif;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.subHeading{
+    font-size: 50px;
+}
+
+.selectedGenres{
+    
 }
 .selectedGenre{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #148A08;
     cursor: pointer;
 }
+
+.error{
+    color: red;
+}
+
 .right{
     flex: 1;
     display: flex;
@@ -24,9 +48,18 @@
 }
 
 .genres{
-
+    display: grid;
 }
 
 .genre{
+    cursor: pointer;
+}
+
+button{
+    display: block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    background-color: #148A08;
     cursor: pointer;
 }

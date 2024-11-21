@@ -16,8 +16,7 @@ function App() {
         <Route path="/movies" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </BrowserRouter>
-    
+    </BrowserRouter> 
   )
 }
 
